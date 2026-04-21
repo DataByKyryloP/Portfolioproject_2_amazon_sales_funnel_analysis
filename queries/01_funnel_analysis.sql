@@ -1,9 +1,6 @@
 /*
 Business Question:
 How does product visibility translate into engagement across the Amazon product funnel?
-
-Goal:
-Measure drop-off from listed products → rated → reviewed → high engagement products
 */
 
 SELECT
@@ -17,4 +14,9 @@ SELECT
 
   COUNTIF(has_reviews = 1) AS products_with_any_reviews
 
-FROM `amazonfunnel.products_clean.products_clean`
+FROM `amazonfunnel.products_clean.products_clean`;
+
+
+-- Insight:
+-- Strong funnel drop-off indicates only a subset of products achieve meaningful engagement.
+-- Ratings are almost universal, but high review thresholds sharply reduce product count.

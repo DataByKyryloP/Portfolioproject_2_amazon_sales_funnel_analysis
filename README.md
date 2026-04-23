@@ -1,9 +1,9 @@
 # Amazon Product Funnel Analysis
 ### Price, Engagement & Category Performance on Amazon.com
 
-**Live dashboard →** [Looker Studio Report](YOUR_LOOKER_STUDIO_LINK_HERE)
+**Live dashboard →** [Looker Studio Report](https://datastudio.google.com/s/jJJDPLOT3N8)
 
-![Dashboard Overview](visuals/dashboard_overview.png)
+![Dashboard Overview](visuals/dashboard_final.png)
 
 ---
 
@@ -33,26 +33,25 @@ amazon-funnel-analysis/
 │
 ├── data/
 │   ├── raw_amazon_products.csv          # Original API pull — never modified
-│   └── cleanest_amazon_products_v3.csv  # Final cleaned + feature-engineered dataset
+│   └── cleanest_amazon_products_v4.csv  # Final cleaned + feature-engineered dataset
 │
 ├── notebooks/
-│   └── Axesso_Amazon_API_Pull_Day1_Final.ipynb  # Full pipeline: extraction → cleaning
-│
+│   └── 01_data_pipeline_amazon_funnel.ipynb  # API pipeline: extraction → cleaning
+│   └── 02_data_final_cleaning.ipynb  # Some final polishes: extra cleaning
 ├── queries/
 │   ├── 01_funnel_analysis.sql
 │   ├── 02_category_performance.sql
 │   ├── 03_price_analysis/
 │   │   ├── 03_price_tier_by_category_CTE.sql     # Final version
-│   │   └── 03_price_tier_by_category_legacy.sql  # Prior version kept for reference
-│   ├── 04_engagement_efficiency.sql
-│   ├── 05_lifecycle_segmentation.sql
+│   ├── 04_review_density.sql
+│   ├── 05_engagement_stage_analysis.sql
 │   └── optional/
 │       └── 06_discount_analysis.sql
-│
+│       └── 03_price_tier_by_category_legacy.sql  # Prior version kept for reference
 └── visuals/
-    ├── dashboard_overview.png
-    ├── dashboard_funnel_panel.png
-    └── dashboard_category_panel.png
+    ├── dashboard_final.png
+    ├── categoty_analysis.png
+    └── price_tier_view.png
 ```
 
 ---
@@ -69,7 +68,7 @@ Google BigQuery — SQL funnel queries and aggregations
 Looker Studio — Live interactive dashboard (connected directly to BigQuery)
 ```
 
-Data was extracted via the Axesso Real-Time Amazon Data API (RapidAPI) on **[INSERT DATE]**. Three product categories were queried — board games, coffee beans, and wireless headphones — yielding **224 unique product listings** from amazon.com. The raw file is preserved untouched; all transformations were applied to a versioned copy.
+Data was extracted via the Axesso Real-Time Amazon Data API (RapidAPI) on **19/04/2026**. Three product categories were queried — board games, coffee beans, and wireless headphones — yielding **224 unique product listings** from amazon.com. The raw file is preserved untouched; all transformations were applied to a versioned copy.
 
 ---
 
@@ -115,8 +114,8 @@ The product engagement funnel reveals a strong hierarchical concentration dynami
 |---|---|---|
 | All products | 224 | — |
 | 500+ reviews | 179 | −20% |
-| 2000+ reviews | ~X | −XX% |
-| 5000+ reviews | 92 | −XX% |
+| 2000+ reviews | 125 | −25% |
+| 5000+ reviews | 92 | −15% |
 
 Most products achieve some level of visibility, but sustained high engagement is rare. Getting past the 500-review threshold represents a meaningful market filter — products that cross it show significantly stronger sales volume and rating stability.
 
@@ -124,7 +123,7 @@ Most products achieve some level of visibility, but sustained high engagement is
 
 ## Dashboard
 
-**Live dashboard →** [Looker Studio Report](YOUR_LOOKER_STUDIO_LINK_HERE)
+**Live dashboard →** [Data(Looker) Studio Report](https://datastudio.google.com/s/jJJDPLOT3N8)
 
 The dashboard is connected directly to BigQuery and reflects live data from the pull date. It includes five analytical panels covering the full funnel, category comparison, price tier segmentation, engagement efficiency, and lifecycle segmentation. A category filter control allows all panels to be sliced simultaneously.
 

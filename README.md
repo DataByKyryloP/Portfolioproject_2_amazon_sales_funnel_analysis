@@ -127,9 +127,9 @@ Most products achieve some level of visibility, but sustained high engagement is
 
 The dashboard is connected directly to BigQuery and reflects live data from the pull date. It includes five analytical panels covering the full funnel, category comparison, price tier segmentation, engagement efficiency, and lifecycle segmentation. A category filter control allows all panels to be sliced simultaneously.
 
-![Funnel and Category Panels](visuals/dashboard_funnel_panel.png)
+![Category Panels](visuals/category_analysis.png)
 
-![Price Tier and Demand Distribution](visuals/dashboard_category_panel.png)
+![Price Tier and Demand Distribution](visuals/price_tier_view.png)
 
 ---
 
@@ -161,4 +161,4 @@ Both the raw and cleaned datasets are preserved in `/data/`. The raw file (`raw_
 
 ---
 
-*Data pulled: [INSERT DATE] · Data source: Axesso Real-Time Amazon Data API via RapidAPI · Dataset: 224 products · Categories: board games, coffee beans, wireless headphones*
+*Data pulled: [19/04/2026] · Data source: Axesso Real-Time Amazon Data API via RapidAPI · Dataset: 224 products · Categories: board games, coffee beans, wireless headphones*
